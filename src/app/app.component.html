@@ -1,0 +1,112 @@
+  <!--Navbar-->
+<mdb-navbar *ngIf="loggedin" style="background-color: black !important" SideClass="navbar navbar-expand-lg navbar-dark black mb-4" >
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" ><img src="../assets/logo.png" width="150" height="35" alt="logo"></a></mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li *ngIf="loggedin" class="nav-item">
+                <a  class="nav-link waves-light" routerLink="/" mdbWavesEffect>Ana sayfa</a>
+            </li>
+            <li *ngIf="!loggedin" class="nav-item">
+                <a class="nav-link waves-light" routerLink="/login" mdbWavesEffect>giriş yap</a>
+            </li>
+            <li *ngIf="!loggedin" class="nav-item">
+                <a class="nav-link waves-light" routerLink="/signup" mdbWavesEffect>kaydol</a>
+            </li>
+           
+
+
+            <!-- Dropdown -->
+            <li *ngIf="loggedin"  class="nav-item dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                  Menü<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+
+                    <a *ngIf="admin"  class="dropdown-item waves-light" mdbWavesEffect routerLink="/changeprice">ücret değiştir</a>
+                </div>
+            </li>
+
+            
+        </ul>
+        <!-- Links -->
+
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+          
+          <li class="nav-item">
+            <a class="nav-link">
+              <div class="btn-group" mdbDropdown>
+                <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
+                <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+
+                  <a  class="dropdown-item" mdbWavesEffect routerLink="/profile">profil</a>
+                  <div class="divider dropdown-divider"></div>
+
+                    <a class="dropdown-item" mdbWavesEffect routerLink="/logout">cıkış yap</a>
+                
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+
+
+<!-- Horizontal Steppers -->
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-12">
+      
+          <!-- Stepers Wrapper -->
+          <ul class="stepper stepper-horizontal">
+      
+            <!-- First Step -->
+            <li class="completed">
+              <a >
+                <span class="circle">1</span>
+                <span class="label">rezervasyon yap</span>
+              </a>
+            </li>
+      
+            <!-- Second Step -->
+            <li class="active">
+              <a>
+                <span class="circle">2</span>
+                <span class="label">geçmişten kod al</span>
+              </a>
+            </li>
+      
+            <!-- Third Step -->
+            <!-- Second Step -->
+            <li class="active">
+                <a>
+                  <span class="circle">3</span>
+                  <span class="label">geçmişten kodu kopyala giriş aç</span>
+                </a>
+              </li>
+              <li class="active">
+                <a>
+                  <span class="circle">4</span>
+                  <span class="label">geçmişten kodu kopyala çıkış aç</span>
+                </a>
+              </li>
+      
+          </ul>
+          <!-- /.Stepers Wrapper -->
+      
+        </div>
+      </div>
+</div>
+
+  <!-- /.Horizontal Steppers -->
+    <router-outlet></router-outlet>

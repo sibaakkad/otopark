@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "akilliotopark-8711a": {
+      "hosting": {
+        "otopark": [
+          "akilliotopark-8711a"
+        ]
+      }
+    }
+  }
+}
