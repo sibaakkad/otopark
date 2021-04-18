@@ -1,0 +1,30 @@
+
+
+
+<div class="container">
+  <h2 class="card-title h2">Kullanıcılar</h2>
+
+  <!-- Subtitle -->
+  <p class="my-4 h6">Burdan Kullanıcıların listesi Görebilirsiniz</p>
+    <table mdbTable>
+        <thead>
+          <tr>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefon</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{user["name"]}}</td>
+            <td>{{user["surname"]}}</td>
+            <td>{{user["email"]}}</td>
+            <td>{{user["telefon"]}}</td>
+            <td>{{user["role"]}}</td>
+
+          </tr>
+        </tbody>
+      </table>
+</div>

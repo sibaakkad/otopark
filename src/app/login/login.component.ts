@@ -31,6 +31,14 @@ export class LoginComponent implements OnInit {
     
   }
 
+
+  /*
+  Kullanıcı girişYap düğmesine bastığında, 
+  bu fonksiyon kullanıcı arayüz üzerinde girdiği bilgileri (mail ve şifre) alıp authentication 
+  service sınıfında SignIn fonksiyona gönderir. Ardından kullanıcı 
+  oturum açıp açmadığını kontrol edecek ve 
+  buna göre kullanıcı başka sayfaya yönlendirecektir. 
+  */
   async onSubmit() {
     this.error="";
     this.visibleProgressBar = true;
@@ -41,15 +49,14 @@ export class LoginComponent implements OnInit {
     }
     await this.Service.SignIn(usi) ;
     let isIn = await this.Service.loggedIn();
-    let admin = this.Service.adminOrNot();
     if (isIn) {
 
-      this.route.navigate([""]);
+      this.route.navigate(["prerez"]);
       this.visibleProgressBar = false;
 
 
     }else{
-      this.error = "Email or passord is incorrect"
+      this.error = "Eposta yada şifre hatalı"
       this.visibleProgressBar = false;
     }
 

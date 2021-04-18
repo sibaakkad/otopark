@@ -35,8 +35,12 @@ export class ProfileComponent implements OnInit {
     await this.getUserData();
     this.visibleProgressBar=false;
   }
+  /*
+  ⦁	onSubmit fonksiyonu:
+  Kullanıcı arayüzü üzerinden girilen bilgelerdeki (ad, soyadı, plaka numarası ve telefon numarası) değişiklik,
+   veri tabanında güncellemesi sağlar.
+  */
   async onSubmit() {
-    console.log("profilecomponent here");
     await this.db.database.ref("users").child(this.userID).update({ name: this.group.value["name"], surname: this.group.value["surname"], telefon: this.group.value["phone"], plaka: this.group.value["plaka"] });
     await this.getUserData();
   }
@@ -44,7 +48,10 @@ export class ProfileComponent implements OnInit {
     this.onSubmit();
     frame.show();
   }
-
+/*
+Arayüz üzerindeki veri tabanında güncellenen kullanıcı 
+bilgilerinin görüntülenmesine olanak sağlar.
+*/
   async getUserData() {
     this.userID = await this.auth.getUserID() ? await this.auth.getUserID() : "";
     let userData = await (await this.db.database.ref("users").child(this.userID).get()).val();

@@ -1,8 +1,13 @@
+import { UsersComponent } from './users/users.component';
 import { User } from './shared/services/user';
+import { BaseScreenComponent } from './base-screen/base-screen.component';
 import { UserGuard } from './user.guard';
 import { SignoutComponent } from './signout/signout.component';
+import { PreRezComponent } from './pre-rez/pre-rez.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { OpenGatesFormComponent } from './open-gates-form/open-gates-form.component';
+import { MakeResComponent } from './make-res/make-res.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 import { SignupComponent } from './signup/signup.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -23,10 +28,15 @@ const routes: Routes = [
 
   //Admin Routes
   { path: 'changeprice', component: HomeComponent, canActivate: [AngularFireAuthGuard, AdminGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
-
+  { path: 'users', component: UsersComponent, canActivate: [AngularFireAuthGuard, AdminGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
+  { path: 'res', component: ReservationsComponent, canActivate: [AngularFireAuthGuard, AdminGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
 
   //User Routes
+  { path: '', component: BaseScreenComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
+  { path: 'makeres', component: MakeResComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
+  { path: 'openGates', component: OpenGatesFormComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
   { path: 'profile', component: ProfileComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
+  { path: 'prerez', component: PreRezComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
   { path: 'logout', component: SignoutComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
 ];
 

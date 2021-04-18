@@ -1,0 +1,92 @@
+
+
+
+<div class="container">
+
+    <!-- Jumbotron -->
+<div class="jumbotron text-center mdb-color white balck-text">
+
+  <!-- Title -->
+  <h2 class="card-title h2">Rezervasyonlar</h2>
+
+  <!-- Subtitle -->
+  <p class="my-4 h6">Burdan Rezervasyonlar Görebilirsiniz</p>
+
+  <!-- Grid row -->
+  <div class="row d-flex justify-content-center">
+
+    <!-- Grid column -->
+    <div class="col-md-3">
+      Rezervasyonlar 
+        <div style="display: block">
+          <canvas mdbChart
+              [chartType]="chartType"
+              [datasets]="chartDatasets"
+              [labels]="chartLabels"
+              [colors]="chartColors"
+              [options]="chartOptions"
+              [legend]="true"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+    </div>
+    <div class="col-md-6">
+      <ul class="list-group text-left">
+        <li class="list-group-item">Kullanıcı sayısı : {{admins + users}}</li>
+        <li class="list-group-item">Normal Kullanıcı sayısı : {{users}} </li>
+        <li class="list-group-item">Admin Kullanıcı Sayısı : {{admins}}  </li>
+        <li class="list-group-item">senin kazancın : {{profit}} TL</li>
+        <li class="list-group-item">Odeme Bekliyor kazancın : {{commingProfit}} TL</li>
+
+      </ul>
+      
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+
+
+</div>
+<!-- Jumbotron -->
+   
+    
+    
+  
+  
+    <table mdbTable>
+        <thead>
+          <tr>
+            <th scope="col">Rezervasyon Tarihi/Saati</th>
+            <th scope="col">Giriş Tarihi/Saati</th>
+            <th scope="col">Çıkış Tarihi/Saati</th>
+            <th scope="col">Durum</th>
+            <th scope="col">kod</th>
+            <th scope="col">plaka</th>
+            <th scope="col">ücret</th>
+            <th scope="col">yer</th>
+            <th scope="col">Ödeme</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let value of values">
+            <td >{{value["rezDate"]}}/{{value["rezTime"]}}</td>
+            <td >{{value["enterDate"]}}/{{value["enterTime"]}}</td>
+            <td >{{value["exitDate"]}}/{{value["exitTime"]}}</td>
+            <td >{{value["durum"]}}</td>
+            <td >{{value["code"]}}</td>
+            <td>{{value["parkNo"]}}</td>
+            <td>{{value["ücret"]}}</td>
+            <td>{{value["place"]}}</td>
+            <td *ngIf="!value['odendi']" >
+              <button mdbBtn type="button" color="info" (click)="ode(value['key'])"  mdbWavesEffect>Ode</button>
+            </td>
+            <td *ngIf="value['odendi']" >Ödendi</td>
+          </tr>
+         
+        
+        </tbody>
+      </table>
+</div>

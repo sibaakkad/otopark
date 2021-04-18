@@ -28,10 +28,20 @@
                 <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
 
                     <a *ngIf="admin"  class="dropdown-item waves-light" mdbWavesEffect routerLink="/changeprice">ücret değiştir</a>
+                    <a *ngIf="admin"  class="dropdown-item waves-light" mdbWavesEffect routerLink="/users">kullancıları göster</a>
+                    <a *ngIf="admin"  class="dropdown-item waves-light" mdbWavesEffect routerLink="/res">rezervasyonlar</a>
+
+                    
+                    
+                    <a  class="dropdown-item waves-light" mdbWavesEffect routerLink="/makeres">rezervasyon yap</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/openGates">kapıları aç</a>
+                    <a  class="dropdown-item waves-light" mdbWavesEffect routerLink="/prerez">geçmiş</a>
+                 
                 </div>
             </li>
 
             
+
         </ul>
         <!-- Links -->
 
@@ -72,7 +82,7 @@
       
             <!-- First Step -->
             <li class="completed">
-              <a >
+              <a routerLink="/makeres">
                 <span class="circle">1</span>
                 <span class="label">rezervasyon yap</span>
               </a>
@@ -80,7 +90,7 @@
       
             <!-- Second Step -->
             <li class="active">
-              <a>
+              <a routerLink="/prerez">
                 <span class="circle">2</span>
                 <span class="label">geçmişten kod al</span>
               </a>
@@ -89,13 +99,13 @@
             <!-- Third Step -->
             <!-- Second Step -->
             <li class="active">
-                <a>
+                <a routerLink="/openGates">
                   <span class="circle">3</span>
                   <span class="label">geçmişten kodu kopyala giriş aç</span>
                 </a>
               </li>
               <li class="active">
-                <a>
+                <a routerLink="/openGates">
                   <span class="circle">4</span>
                   <span class="label">geçmişten kodu kopyala çıkış aç</span>
                 </a>

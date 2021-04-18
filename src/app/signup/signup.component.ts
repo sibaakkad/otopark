@@ -37,6 +37,12 @@ export class SignupComponent implements OnInit {
       }
     }
   }
+  /*
+  Kullanıcı KAYDET düğmesine bastığında,
+  bu fonksiyon kullanıcı arayüz üzerinde girdiği bilgileri 
+  (Ad, Soyadı, Mail, Şifre, Telefon numarası ve Plaka numarası) alıp authentication 
+  service sınıfında SignUp fonksiyona gönderir. 
+  */
   async onSubmit() {
     let ur: UserSignUp;
     ur = { 

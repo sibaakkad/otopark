@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 })
 
 
+
 export class AuthenticationServiceService {
 
 
@@ -23,9 +24,12 @@ export class AuthenticationServiceService {
     this.itItAdmin = false;
     this.isUserIn = false;
     
-    console.log("here is constructor");
   }
-
+/*
+SignUp fonksiyonu:
+Kullanıcının, uygulamaya kayıt 
+sırasında girdiği bilgileri veri tabanında kaydeder
+*/
   async SignUp(us: UserSignUp) {
     await this.angularFireAuth
       .createUserWithEmailAndPassword(us.email, us.password)
@@ -42,7 +46,13 @@ export class AuthenticationServiceService {
 
       });
   }
-
+/**
+ * SignIn fonksiyonu:
+  Firbasete hazır olan signInWithEmailAndPassword
+   fonksiyonunu kullanarak, kullanıcı tarafından girilen e-posta ve şifre 
+   bilgilerini veri tabanındaki kullanıcı
+   bilgileriyle karşılaştırır ve uygulamanın oturum açmasına izin verir.
+ */
   async SignIn(usi: UserSignIn) {
     
     return await this.angularFireAuth
@@ -56,29 +66,53 @@ export class AuthenticationServiceService {
         err
       });
   }
-
+/*
+	SignOut fonksiyonu: 
+ Kullanıcının uygulamadan çıkış yapmasına izin verir
+*/
   async SignOut() {
-    console.log("here from out");
     await this.angularFireAuth
       .signOut();
     this.getAccess();
   }
 
+  /* 
+    loggedIn fonksiyonu:
+    Kullanıcının doğru bir şekilde uygulamaya giriş 
+    yapıp yapmadığına bilgisini geriye döndürür.
+  */
   async loggedIn() {
     await this.getAccess();
     return this.isUserIn;
   }
+/*
+⦁	adminOrNot fonksiyonu:
+Kullanıcının admin olup olmadığı bilgisini geriye döndürür.
 
+
+*/
   async adminOrNot() {
     await this.getAccess();
     return this.itItAdmin;
   }
+
+
+
   async getUserID() {
+    //Oturum açmış kullanıcının id’yi geriye döndürür.
     let uid = await this.angularFireAuth.currentUser.then((res)=>res?.uid ? res?.uid : "");
     console.warn(uid);
     return uid.toString();
   }
 
+
+  /*getAccess fonksiyonu: 
+  Programa giren kullanıcı admin olup olmadığını kontrol etmek için 
+  kullanmaktayım. Programa giriş yapan kişinin veri tabanından rolü 
+  kontrol ediyor. Rolü a (yani yönetici) ise true, aksi takdirde geriye 
+  false (yani normal kullanıcı) döndürür. Bu fonksiyon yalnızca kullanıcı 
+  doğru şekilde oturum açtığında çalışır.
+*/
   async getAccess() {
     let uid = await this.angularFireAuth.currentUser.then((res)=>res?.uid ? res?.uid : "");
     if (uid != "") {

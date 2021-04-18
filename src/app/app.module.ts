@@ -6,13 +6,18 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { MakeResComponent } from './make-res/make-res.component';
+import { OpenGatesFormComponent } from './open-gates-form/open-gates-form.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PreRezComponent } from './pre-rez/pre-rez.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignoutComponent } from './signout/signout.component';
-
+import { BaseScreenComponent } from './base-screen/base-screen.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +25,14 @@ import { SignoutComponent } from './signout/signout.component';
     LoginComponent,
     HomeComponent,
     SignupComponent,
-
+    ReservationsComponent,
+    MakeResComponent,
+    OpenGatesFormComponent,
     ProfileComponent,
+    PreRezComponent,
     SignoutComponent,
-
+    BaseScreenComponent,
+    UsersComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

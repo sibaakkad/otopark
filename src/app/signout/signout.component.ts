@@ -15,10 +15,14 @@ export class SignoutComponent implements OnInit {
   ) { 
    
   }
-
+/*
+Kullanıcı çıkış Yap düğmesine bastığında,
+ bu fonksiyon authentication service sınıfında 
+ SignOut fonksiyonu çağırarak kullanıcının başarıyla 
+ oturumu kapatmasına olanak tanır.
+*/
  async ngOnInit() {
     await this.auth.SignOut();
-    console.log("after signedOut");
     this.route.navigateByUrl("/login")
   }
 
