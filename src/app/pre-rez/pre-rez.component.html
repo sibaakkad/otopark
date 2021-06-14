@@ -1,0 +1,116 @@
+<div class="container black-text">
+  <div *ngIf="visibleProgressBar" style="z-index: 10;" class="text-center">
+    <div class="spinner-grow text-dark" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+      <div *ngIf="!visibleProgressBar" class="row">
+        <div class="col-md-6 mb4 mt4 m4 p4 black-text" *ngFor="let value of values" style=" margin-top: 11px !important">
+          <mdb-card class="mb4 mt4 m4 p4 black-text" style="color:black !important ; ">
+            
+            <mdb-card-body  *ngIf="value[1]['durum'] == 'çikti'"  style="  background-color: #ff808b ;   ">
+          
+              <!--Title-->
+              <mdb-card-title>
+                <h4>Çıktı</h4>
+              </mdb-card-title>
+          
+              <!--Text-->
+              <mdb-card-text > 
+                Giriş tarihi ve saati : {{value[1]["enterDate"]}}/{{value[1]["enterTime"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+                Giriş tarihi ve saati : {{value[1]["exitDate"]}}/{{value[1]["exitTime"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+                Ücret : {{value[1]["ücret"]}} TL
+              </mdb-card-text>
+             
+              <mdb-card-text> 
+                Plaka : {{value[1]["parkNo"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+               Yer : {{value[1]["place"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+                Kod : {{value[1]["GeneratedCode"]}}
+               </mdb-card-text>
+              
+            </mdb-card-body>
+            <mdb-card-body *ngIf="value[1]['durum'] == 'active'"  style="background-color: #a2ffa2;">
+          
+              <!--Title-->
+              <mdb-card-title class="black-text">
+                <h4>Aktif</h4>
+              </mdb-card-title>
+          
+              <!--Text-->
+              <mdb-card-text> 
+                Giriş tarihi ve saati : {{value[1]["enterDate"]}}/{{value[1]["enterTime"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+                Giriş tarihi ve saati : {{value[1]["exitDate"]}}/{{value[1]["exitTime"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+                Ücret : {{value[1]["ücret"]}} TL
+              </mdb-card-text>
+             
+              <mdb-card-text> 
+                Plaka : {{value[1]["parkNo"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+               Yer : {{value[1]["place"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+                Kod : {{value[1]["GeneratedCode"]}}
+               </mdb-card-text>
+              
+            </mdb-card-body>
+            <mdb-card-body *ngIf="value[1]['durum'] == 'girdi'" style="background-color: #fffda2;">
+          
+              <!--Title-->
+              <mdb-card-title>
+                <h4>Girdi</h4>
+              </mdb-card-title>
+          
+              <!--Text-->
+              <mdb-card-text> 
+                Giriş tarihi ve saati : {{value[1]["enterDate"]}}/{{value[1]["enterTime"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+                Giriş tarihi ve saati : {{value[1]["exitDate"]}}/{{value[1]["exitTime"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+                Ücret : {{value[1]["ücret"]}} TL
+              </mdb-card-text>
+             
+              <mdb-card-text> 
+                Plaka : {{value[1]["parkNo"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+               Yer : {{value[1]["place"]}}
+              </mdb-card-text>
+              <mdb-card-text> 
+                Kod : {{value[1]["GeneratedCode"]}}
+               </mdb-card-text>
+               <mdb-card-text *ngIf="value[1]['odendi']"> 
+                Ödeme Durumu : Ödendi
+               </mdb-card-text>
+               <mdb-card-text *ngIf="!value[1]['odendi']"> 
+                Ödeme Durumu : Ödenmedi
+               </mdb-card-text >
+               <button *ngIf="!value[1]['odendi']" type="button" (click)="ode(value[0])" mdbBtn color="light" mdbWavesEffect>Öde</button>
+
+              
+            </mdb-card-body>
+            
+          </mdb-card>
+        </div>
+        
+   
+      </div>
+      
+</div>
+
+
+

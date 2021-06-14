@@ -1,0 +1,150 @@
+<div class="container justify-content-center">
+  <hr>
+
+
+
+  <hr>
+  <form>
+    <div [formGroup]="group">
+      <div class="row" >
+
+        <div class="col-md-6">
+          <div class="md-form">
+            <input  (change)="getPriceChange()" type="time" formControlName="atime" id="input" class="form-control"  mdbInput />
+            <label for="input">giriş saati gir</label>
+          </div>
+        </div>
+       
+        <div class="col-md-6">
+          <div class="md-form">
+            <input (change)="getPriceChange()" formControlName="adate" type="date" id="input" class="form-control" mdbInput>
+            <label for="input">giriş tarihi gir</label>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="md-form">
+            <input (change)="getPriceChange()" type="time" formControlName="ltime" id="input" class="form-control"  mdbInput />
+            <label for="input">çıkış saati gir</label>
+          </div>
+        </div>
+       
+        <div class="col-md-6">
+          <div class="md-form">
+            <input (change)="getPriceChange()" formControlName="ldate" type="date" id="input" class="form-control" mdbInput>
+            <label for="input">çıkış tarihi gir</label>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-md-6">
+     
+      </div>
+      <div class="col-md-6">
+        <h5>
+          Ödenecek ücret : {{price}} TL
+        </h5>
+        </div>
+      </div>
+  </form>
+
+  <button type="button" mdbBtn color="black" class="relative waves-light"  (click)="cont(basicModal)" mdbWavesEffect>Devam et</button>
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">yer seç</h4>
+      </div>
+      <div >
+        <br>
+        <div class="row justify-content-center">
+          <div class="col-md-6 container justify-content-center" >
+            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" *ngFor="let s of unav">
+              <button *ngIf="!s[1]" mdbBtn id="{{s[0]}}" sd="false" type="button" color="unique" size="lg" class="waves-light" mdbWavesEffect>{{s[0]}}</button>
+              <button *ngIf="s[1]"  mdbBtn id="{{s[0]}}" sd="true" type="button" color="success" size="lg" class="waves-light" mdbWavesEffect>{{s[0]}}</button>
+            </div>
+            <br>
+            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+              <button mdbBtn color="unique" class="waves-light" mdbWavesEffect>Dolu</button>
+              <button mdbBtn color="success" class="waves-light" mdbWavesEffect>Boş</button>
+              <button mdbBtn color="amber" class="waves-light" mdbWavesEffect>Seçilen</button>
+            </div>
+          </div>
+      
+      
+       
+        
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="danger" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>kapt</button>
+        <button type="button" mdbBtn color="dark" (click)="onSave(frame,wrong,basicModal)" class="relative waves-light" mdbWavesEffect>kaydet</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-success" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Rezervasyon yapıldı</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <mdb-icon fas icon="check" size="4x" class="animated rotateIn"></mdb-icon>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+
+        <a type="button" mdbBtn color="success" class="waves-effect" mdbWavesEffect data-dismiss="modal"
+          (click)="frame.hide()">Tamam</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+
+<div mdbModal #wrong="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">{{errorRes}}</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <mdb-icon fas icon="times" size="4x" class="animated rotateIn"></mdb-icon>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+
+        <a type="button" mdbBtn color="danger" class="waves-effect" mdbWavesEffect data-dismiss="modal"
+          (click)="wrong.hide()">Tamam</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+

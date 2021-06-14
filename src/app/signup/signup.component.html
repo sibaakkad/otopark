@@ -1,0 +1,50 @@
+<div class="container">
+    <div  class="row justify-content-center">
+    
+            <form class="text-center border border-light p-5"   >
+              <div [formGroup]="myGroup">
+
+          
+                <p class="h4 mb-4">Hesap oluştur</p>
+          
+                <div class="form-row mb-4">
+                  <div class="col">
+                    <!-- First name -->
+                    <input required type="text"  formControlName="name" class="form-control" placeholder="Ad">
+                  </div>
+                  <div class="col">
+                    <!-- Last name -->
+                    <input required type="text"  formControlName="surname" class="form-control" placeholder="Soyad">
+                  </div>
+                </div>
+          
+                <!-- E-mail -->
+                <input required type="email"  class="form-control mb-4" formControlName="email" placeholder="E-mail">
+          
+                <!-- Password -->
+                <input required type="password"  class="form-control  mb-4" placeholder="Şifre" formControlName="password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                
+          
+                <!-- Phone number -->
+                <input required type="text"  class="form-control  mb-4" placeholder="Telefon Numarası" formControlName="number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+               
+
+                 <!-- plaka number -->
+                 <input required type="text"  class="form-control"    placeholder="Plaka Numarası" formControlName="plaka" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                 
+                 <hr>
+          
+                <!-- Sign up button -->
+                
+
+                <a mdbBtn color="info" style="background-color: black !important;" class="my-4" type="reset" routerLink="/login" >hesabım var</a>
+
+                <button mdbBtn color="info" style="background-color: black !important;" class="my-4" type="reset" (click)="onSubmit()" >Kaydet</button>
+              </div>
+             
+              </form>
+
+      </div>
+</div>
+
+   

@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row justify-content-center">
+    
+    
+    <!-- Default form login -->
+    <form class="text-center border border-light p-5">
+      
+      <div [formGroup]="group">
+        <p class="h4 mb-4">Giriş Yapın</p>
+        <br>
+        <div *ngIf="visibleProgressBar" style="z-index: 10;" class="text-center">
+          <div class="spinner-grow text-dark" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <br>
+        <div *ngIf="error !=''"class="alert alert-danger" role="alert">
+          {{error}}
+        </div>
+        <br>
+        <!-- Email -->
+        <input type="email" id="defaultLoginFormEmail" formControlName="email" class="form-control mb-4"
+          placeholder="E-mail">
+
+        <!-- Password -->
+        <input type="password" id="defaultLoginFormPassword" formControlName="password" class="form-control mb-4"
+          placeholder="şifre">
+
+
+
+        <!-- Sign in button -->
+        <button mdbBtn color="dark" class="my-4" type="reset" (click)="onSubmit()">Giriş yap</button>
+
+        <!-- Register -->
+        <p>
+          <a routerLink="/signup">kaydol</a>
+        </p>
+
+        <!-- Social login -->
+      </div>
+     
+    </form>
+  </div>
+  <!-- Default form login -->
+</div>
+
+
