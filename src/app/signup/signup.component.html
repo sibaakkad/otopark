@@ -5,36 +5,32 @@
               <div [formGroup]="myGroup">
 
           
-                <p class="h4 mb-4">Sign up</p>
+                <p class="h4 mb-4">Hesap oluştur</p>
           
                 <div class="form-row mb-4">
                   <div class="col">
                     <!-- First name -->
-                    <input type="text"  formControlName="name" class="form-control" placeholder="Ad">
+                    <input required type="text"  formControlName="name" class="form-control" placeholder="Ad">
                   </div>
                   <div class="col">
                     <!-- Last name -->
-                    <input type="text"  formControlName="surname" class="form-control" placeholder="Soyad">
+                    <input required type="text"  formControlName="surname" class="form-control" placeholder="Soyad">
                   </div>
                 </div>
           
                 <!-- E-mail -->
-                <input type="email"  class="form-control mb-4" formControlName="email" placeholder="E-mail">
+                <input required type="email"  class="form-control mb-4" formControlName="email" placeholder="E-mail">
           
                 <!-- Password -->
-                <input type="password"  class="form-control" placeholder="Şifre" formControlName="password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-                <small  class="form-text text-muted mb-4">
-                  At least 8 characters and 1 digit
-                </small>
+                <input required type="password"  class="form-control  mb-4" placeholder="Şifre" formControlName="password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                
           
                 <!-- Phone number -->
-                <input type="text"  class="form-control" placeholder="Telefon Numarası" formControlName="number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                <small  class="form-text text-muted mb-4">
+                <input required type="text"  class="form-control  mb-4" placeholder="Telefon Numarası" formControlName="number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
                
-                </small>
 
                  <!-- plaka number -->
-                 <input type="text"  class="form-control"    placeholder="Plaka Numarası" formControlName="plaka" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                 <input required type="text"  class="form-control"    placeholder="Plaka Numarası" formControlName="plaka" aria-describedby="defaultRegisterFormPhoneHelpBlock">
                  
                  <hr>
           

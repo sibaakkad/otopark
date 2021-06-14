@@ -53,9 +53,11 @@ export class SignupComponent implements OnInit {
       number: this.myGroup.value["number"], 
       plaka: this.myGroup.value["plaka"] };
 
-
-   await this.Service.SignUp(ur);
-    this.route.navigate(["makeres"]);
+if(this.myGroup.valid){
+  await this.Service.SignUp(ur);
+  this.route.navigate(["makeres"]);
+}
+   
   }
 
 

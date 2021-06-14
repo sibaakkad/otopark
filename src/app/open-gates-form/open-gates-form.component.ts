@@ -43,6 +43,7 @@ export class OpenGatesFormComponent implements OnInit {
         timeArray = value.val()["enterTime"].split(":");
         let situation = value.val()["durum"];
         let code = value.val()["GeneratedCode"];
+        let place = Number(value.val()["place"]);
         let times = this.timeComparing(timeArray[0], timeArray[1], date.getHours(), date.getMinutes());
                                                                                                                                                                                         
         if (date.getFullYear().toString() == dateArray[0] && String(date.getMonth() + 1).padStart(2, '0') == dateArray[1] 
@@ -53,6 +54,9 @@ export class OpenGatesFormComponent implements OnInit {
             isitOk = true;
             this.db.database.ref("gate").child("frontDoor").set({
               situation: true
+            });
+            this.db.database.ref("place").set({
+              number: place
             });
             this.db.database.ref("rezervasyon").child(key).update({
               durum: "girdi"

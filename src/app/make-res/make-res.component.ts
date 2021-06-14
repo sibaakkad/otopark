@@ -46,7 +46,7 @@ export class MakeResComponent implements OnInit {
   async onSave(frame: any, wrong: any, basicModal: any) {
     if (this.group.value["atime"] == "" || this.group.value["adate"] == "" || this.group.value["ltime"] == "" 
     || this.group.value["ldate"] == "" || this.selectedPlace == null) {
-      this.errorRes = "Tüm alanlar doldur";
+      this.errorRes = "Tüm alanları doldur";
       wrong.show();
       return;
     }
@@ -103,7 +103,7 @@ export class MakeResComponent implements OnInit {
         }).catch((err) => {
           this.errorRes = err;
          
-          this.errorRes = "Tüm alanlar doldur";
+          this.errorRes = "Tüm alanları doldur";
           wrong.show();
         });
       } else {
@@ -113,7 +113,7 @@ export class MakeResComponent implements OnInit {
       }
     }
     else {
-      this.errorRes = "çıkış tarih ve saati, giriş tarih ve saatinden daha sonra olması gerekiyor"
+      this.errorRes = "Çıkış tarih ve saati, giriş tarih ve saatinden daha sonra olması gerekiyor"
 
       wrong.show();
     }

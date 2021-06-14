@@ -13,10 +13,10 @@
                 <a  class="nav-link waves-light" routerLink="/" mdbWavesEffect>Ana sayfa</a>
             </li>
             <li *ngIf="!loggedin" class="nav-item">
-                <a class="nav-link waves-light" routerLink="/login" mdbWavesEffect>giriş yap</a>
+                <a class="nav-link waves-light" routerLink="/login" mdbWavesEffect>Giriş</a>
             </li>
             <li *ngIf="!loggedin" class="nav-item">
-                <a class="nav-link waves-light" routerLink="/signup" mdbWavesEffect>kaydol</a>
+                <a class="nav-link waves-light" routerLink="/signup" mdbWavesEffect>Kaydol</a>
             </li>
            
 
@@ -27,15 +27,15 @@
                   Menü<span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
 
-                    <a *ngIf="admin"  class="dropdown-item waves-light" mdbWavesEffect routerLink="/changeprice">ücret değiştir</a>
-                    <a *ngIf="admin"  class="dropdown-item waves-light" mdbWavesEffect routerLink="/users">kullancıları göster</a>
-                    <a *ngIf="admin"  class="dropdown-item waves-light" mdbWavesEffect routerLink="/res">rezervasyonlar</a>
+                    <a *ngIf="admin"  class="dropdown-item waves-light" mdbWavesEffect routerLink="/changeprice">Ücreti değiştir</a>
+                    <a *ngIf="admin"  class="dropdown-item waves-light" mdbWavesEffect routerLink="/users">Kullancıları göster</a>
+                    <a *ngIf="admin"  class="dropdown-item waves-light" mdbWavesEffect routerLink="/res">Tüm Rezervasyonlar</a>
 
                     
                     
-                    <a  class="dropdown-item waves-light" mdbWavesEffect routerLink="/makeres">rezervasyon yap</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/openGates">kapıları aç</a>
-                    <a  class="dropdown-item waves-light" mdbWavesEffect routerLink="/prerez">geçmiş</a>
+                    <a  class="dropdown-item waves-light" mdbWavesEffect routerLink="/makeres">Rezervasyon yap</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/openGates">Kapıları aç</a>
+                    <a  class="dropdown-item waves-light" mdbWavesEffect routerLink="/prerez">Geçmiş Rezervasyonlar</a>
                  
                 </div>
             </li>
@@ -53,10 +53,10 @@
                 <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
                 <div class="dropdown-menu dropdown-menu-right dropdown-primary">
 
-                  <a  class="dropdown-item" mdbWavesEffect routerLink="/profile">profil</a>
+                  <a  class="dropdown-item" mdbWavesEffect routerLink="/profile">Profil</a>
                   <div class="divider dropdown-divider"></div>
 
-                    <a class="dropdown-item" mdbWavesEffect routerLink="/logout">cıkış yap</a>
+                    <a class="dropdown-item" mdbWavesEffect routerLink="/logout">Çıkış</a>
                 
                 </div>
               </div>
@@ -84,7 +84,7 @@
             <li class="completed">
               <a routerLink="/makeres">
                 <span class="circle">1</span>
-                <span class="label">rezervasyon yap</span>
+                <span class="label">Rezervasyon yap</span>
               </a>
             </li>
       
@@ -92,7 +92,7 @@
             <li class="active">
               <a routerLink="/prerez">
                 <span class="circle">2</span>
-                <span class="label">geçmişten kod al</span>
+                <span class="label">Geçmişten kod al</span>
               </a>
             </li>
       
@@ -101,13 +101,13 @@
             <li class="active">
                 <a routerLink="/openGates">
                   <span class="circle">3</span>
-                  <span class="label">geçmişten kodu kopyala giriş aç</span>
+                  <span class="label">Rezervasyon Bilgilerindeki Kodu Kapyalayarak Giriş Kapısını Aç</span>
                 </a>
               </li>
               <li class="active">
                 <a routerLink="/openGates">
                   <span class="circle">4</span>
-                  <span class="label">geçmişten kodu kopyala çıkış aç</span>
+                  <span class="label">Rezervasyon Bilgilerindeki Kodu Kapyalayarak Çıkış Kapısını Aç</span>
                 </a>
               </li>
       

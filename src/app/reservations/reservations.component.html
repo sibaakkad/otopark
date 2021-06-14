@@ -10,7 +10,7 @@
   <h2 class="card-title h2">Rezervasyonlar</h2>
 
   <!-- Subtitle -->
-  <p class="my-4 h6">Burdan Rezervasyonlar Görebilirsiniz</p>
+  <p class="my-4 h6">Burada tüm rezervasyonların bilgilerini görebilirsiniz</p>
 
   <!-- Grid row -->
   <div class="row d-flex justify-content-center">
@@ -34,10 +34,10 @@
     <div class="col-md-6">
       <ul class="list-group text-left">
         <li class="list-group-item">Kullanıcı sayısı : {{admins + users}}</li>
-        <li class="list-group-item">Normal Kullanıcı sayısı : {{users}} </li>
+        <li class="list-group-item">Normal kullanıcı sayısı : {{users}} </li>
         <li class="list-group-item">Admin Kullanıcı Sayısı : {{admins}}  </li>
-        <li class="list-group-item">senin kazancın : {{profit}} TL</li>
-        <li class="list-group-item">Odeme Bekliyor kazancın : {{commingProfit}} TL</li>
+        <li class="list-group-item">Kazanç miktarı : {{profit}} TL</li>
+        <li class="list-group-item">Ödeme bekleyen kazanç : {{commingProfit}} TL</li>
 
       </ul>
       
@@ -63,11 +63,11 @@
             <th scope="col">Giriş Tarihi/Saati</th>
             <th scope="col">Çıkış Tarihi/Saati</th>
             <th scope="col">Durum</th>
-            <th scope="col">kod</th>
-            <th scope="col">plaka</th>
-            <th scope="col">ücret</th>
-            <th scope="col">yer</th>
-            <th scope="col">Ödeme</th>
+            <th scope="col">Kod</th>
+            <th scope="col">Plaka</th>
+            <th scope="col">Ücret</th>
+            <th scope="col">Yer</th>
+            <th scope="col">Ödeme Durumu</th>
           </tr>
         </thead>
         <tbody>
@@ -75,13 +75,15 @@
             <td >{{value["rezDate"]}}/{{value["rezTime"]}}</td>
             <td >{{value["enterDate"]}}/{{value["enterTime"]}}</td>
             <td >{{value["exitDate"]}}/{{value["exitTime"]}}</td>
-            <td >{{value["durum"]}}</td>
+            <td *ngIf='value["durum"] == "çikti"'>Çıktı</td>
+            <td *ngIf='value["durum"] == "girdi"'>Girdi</td>
+            <td *ngIf='value["durum"] == "active"'>Aktif</td>
             <td >{{value["code"]}}</td>
             <td>{{value["parkNo"]}}</td>
             <td>{{value["ücret"]}}</td>
             <td>{{value["place"]}}</td>
             <td *ngIf="!value['odendi']" >
-              <button mdbBtn type="button" color="info" (click)="ode(value['key'])"  mdbWavesEffect>Ode</button>
+              <button mdbBtn type="button" color="info" (click)="ode(value['key'])"  mdbWavesEffect>Öde</button>
             </td>
             <td *ngIf="value['odendi']" >Ödendi</td>
           </tr>
