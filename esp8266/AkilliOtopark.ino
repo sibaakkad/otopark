@@ -156,7 +156,7 @@ void loop()
     /*giriş sensörünün önünden araba geçmesini bekleyecek.*/
     while ( digitalRead(GirisSensor) == LOW) {
       Serial.println("giriş açık .. .. .. ..");
-    }
+    }delay(2000);
     Serial.println("updated");
 
     /*araba giriş kapısından geçtikten sonra,
@@ -188,6 +188,7 @@ void loop()
     while ( digitalRead(CikisSensor) == LOW) {
       Serial.println("çıkış açık ");
     }
+    delay(2000);
     Serial.println("updated");
 
     /*araba çıkış kapısından geçtikten sonra,
